@@ -19,7 +19,7 @@ kill_port() {
     " 2>/dev/null || true
   else
     if command -v fuser >/dev/null 2>&1; then
-      fuser -k "${PORT}/tcp" 2>/dev/null || true
+      fuser -k "${PORT}/tcp" >/dev/null 2>&1 || true
     fi
     if command -v lsof >/dev/null 2>&1; then
       pids="$(lsof -ti:"${PORT}" 2>/dev/null || true)"
@@ -35,5 +35,9 @@ kill_port
 sleep 1
 
 echo "构建并启动生产预览（端口 ${PORT}）…"
+if [[ ! -x node_modules/.bin/tsc ]] || [[ ! -x node_modules/.bin/vite ]]; then
+  echo "未检测到本地 tsc/vite，正在执行 npm install（需安装 devDependencies）…"
+  npm install --include=dev --no-fund --no-audit
+fi
 npm run build
 npx vite preview --port "${PORT}" --host
