@@ -2,7 +2,7 @@
 # 释放 8000 端口后启动 Vite 生产预览（先 build 再 preview，非 dev）
 set -euo pipefail
 
-ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$ROOT"
 
 PORT="${PORT:-8000}"
