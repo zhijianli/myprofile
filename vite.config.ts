@@ -6,4 +6,9 @@ export default defineConfig({
   server: {
     port: 8000,
   },
+  preview: {
+    port: 8000,
+    // 允许通过公网域名 / IP 访问（否则仅 localhost 可用）
+    allowedHosts: [".menganhealth.cn", "menganhealth.cn"],
+  },
 });
