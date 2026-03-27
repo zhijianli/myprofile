@@ -39,7 +39,7 @@ if [[ ! -x node_modules/.bin/tsc ]] || [[ ! -x node_modules/.bin/vite ]]; then
   echo "未检测到本地 tsc/vite，正在执行 npm install（需安装 devDependencies）…"
   npm install --include=dev --no-fund --no-audit
 fi
-npm run build
+npm run build 
 
 LOG_FILE="${ROOT}/output.log"
 echo "正在后台启动预览（端口 ${PORT}），日志写入 ${LOG_FILE} …"
