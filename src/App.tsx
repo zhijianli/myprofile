@@ -211,7 +211,7 @@ function App() {
           <div className="section__inner">
             <h2 className="section__title">产品视频</h2>
             <p className="section__lead section__lead--videos">
-              过去产品的一些演示与录屏，均在本地托管。
+              过去产品的一些演示与录屏。
             </p>
             <ul className="video-list">
               {productVideos.map((v) => (
