@@ -1,11 +1,16 @@
 import { useEffect, useState } from "react";
-import { projects, site, type SocialLink } from "./content";
+import { productVideos, projects, site, type SocialLink } from "./content";
 import "./App.css";
 
 const navItems = [
   { id: "about", label: "关于我" },
+  { id: "videos", label: "产品视频" },
   { id: "projects", label: "项目" },
 ] as const;
+
+function videoPublicSrc(file: string): string {
+  return `/videos/${encodeURIComponent(file)}`;
+}
 
 function SocialGlyph({ link }: { link: SocialLink }) {
   if ("svg" in link && link.svg === "github") {
@@ -199,6 +204,32 @@ function App() {
                 </div>
               </div>
             </div>
+          </div>
+        </section>
+
+        <section id="videos" className="section section--videos">
+          <div className="section__inner">
+            <h2 className="section__title">产品视频</h2>
+            <p className="section__lead section__lead--videos">
+              过去产品的一些演示与录屏，均在本地托管。
+            </p>
+            <ul className="video-list">
+              {productVideos.map((v) => (
+                <li key={v.file} className="video-card">
+                  <div className="video-card__player">
+                    <video
+                      className="video-card__video"
+                      controls
+                      playsInline
+                      preload="metadata"
+                      src={videoPublicSrc(v.file)}
+                    >
+                      您的浏览器不支持 HTML5 视频。
+                    </video>
+                  </div>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
 

@@ -55,21 +55,34 @@ export type Project = {
   href: string;
 };
 
+/** 对应 `public/videos/` 下的文件名；展示时会对路径做编码以支持空格等特殊字符 */
+export type ProductVideo = {
+  file: string;
+};
+
+export const productVideos: ProductVideo[] = [
+  { file: "1.mp4" },
+  { file: "2.mp4" },
+  { file: "3.mp4" },
+  { file: "4.mp4" },
+  { file: "5.mp4" },
+];
+
 export const projects: Project[] = [
   {
-    title: "AI-SFBT",
-    subtitle: "短焦咨询师",
+    title: "疗愈实验室",
+    subtitle: "心蜗 · 心理健康应用超市",
     description:
-      "基于焦点解决短期治疗（SFBT）技法开发的 AI 心理咨询助手。",
-    image: "/images/sfbt.png",
-    tags: ["AI", "React"],
-    href: "https://supermarket.xwxinli.com/chat",
+      "心蜗旗下的心理健康应用超市。以「让心灵有所依托」为理念，为心理健康服务提供基础设施入口。",
+    image: "/images/healing-lab-cover.png",
+    tags: ["心理健康", "AI", "Web"],
+    href: "https://supermarket.xwxinli.com/supermarket",
   },
   {
     title: "SONGJING",
     subtitle: "静心诵经",
     description: "跟随经文诵读，体会「空」的意涵。",
-    image: "/images/lotus.png",
+    image: "/images/songjing-cover.png",
     tags: ["AI", "Python", "Flutter"],
     href: "http://songjing.menganhealth.cn/",
   },
@@ -77,7 +90,7 @@ export const projects: Project[] = [
     title: "YUYI",
     subtitle: "羽衣",
     description: "依据阴阳五行，推荐每日适合的服饰配色。",
-    image: "/images/羽衣.png",
+    image: "/images/yuyi-cover.png",
     tags: ["AI", "Python", "UniApp"],
     href: "http://menganhealth.cn:9000/build/web/#/",
   },
