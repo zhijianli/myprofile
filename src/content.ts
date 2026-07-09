@@ -66,6 +66,7 @@ export const productVideos: ProductVideo[] = [
   { file: "3.mp4" },
   { file: "4.mp4" },
   { file: "5.mp4" },
+  { file: "6.mp4" },
 ];
 
 export const projects: Project[] = [
