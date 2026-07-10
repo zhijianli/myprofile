@@ -1,12 +1,30 @@
 import { useEffect, useState } from "react";
-import { productVideos, projects, site, type SocialLink } from "./content";
+import {
+  faqs,
+  productVideos,
+  projects,
+  site,
+  skillCards,
+  type SocialLink,
+} from "./content";
 import "./App.css";
 
 const navItems = [
   { id: "about", label: "关于我" },
+  { id: "skills", label: "技术栈" },
   { id: "videos", label: "产品视频" },
   { id: "projects", label: "项目" },
+  { id: "faq", label: "常见问题" },
 ] as const;
+
+const videoMeta = [
+  { title: "疗愈实验室·心悦", subtitle: "产品演示", duration: "0:09" },
+  { title: "颂经 SONGJING", subtitle: "诵读体验", duration: "0:08" },
+  { title: "御衣 YUYI", subtitle: "节气配色", duration: "0:17" },
+  { title: "心悦 · 功能走览", subtitle: "操作录屏", duration: "0:09" },
+  { title: "颂经 · 完整流程", subtitle: "用户体验", duration: "0:37" },
+  { title: "御衣 · 日常使用", subtitle: "生活场景", duration: "0:51" },
+];
 
 function videoPublicSrc(file: string): string {
   return `/videos/${encodeURIComponent(file)}`;
@@ -82,6 +100,20 @@ function App() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
+  const [aboutExpanded, setAboutExpanded] = useState(false);
+  const [playingVideos, setPlayingVideos] = useState<Set<string>>(() => new Set());
+
+  const markVideoPlaying = (file: string, playing: boolean) => {
+    setPlayingVideos((current) => {
+      const next = new Set(current);
+      if (playing) {
+        next.add(file);
+      } else {
+        next.delete(file);
+      }
+      return next;
+    });
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -161,61 +193,135 @@ function App() {
 
       <main id="top">
         <section className="hero">
-          <div className="hero__grid">
+          <div className="hero__inner">
             <div className="hero__copy">
-              <p className="hero__hi">你好，我是</p>
-              <h1 className="hero__name">{site.name}.</h1>
-              <h2 className="hero__role">我是一名独立开发者。</h2>
+              <p className="eyebrow hero__eyebrow">{site.heroEyebrow}</p>
+              <h1 className="hero__name">{site.name}</h1>
+              <h2 className="hero__role">{site.heroTitle}</h2>
               <p className="hero__tagline">{site.tagline}</p>
+              <ul className="pill-list" aria-label="核心标签">
+                {site.heroTags.map((tag) => (
+                  <li key={tag} className="pill">
+                    {tag}
+                  </li>
+                ))}
+              </ul>
               <HeroSocialRow onOpenWechat={setLightboxSrc} />
             </div>
-            <div className="hero__visual">
-              <div className="hero__frame">
-                <img src="/images/personal.png" alt="" className="hero__photo" />
-              </div>
-            </div>
+            <dl className="stat-grid" aria-label="个人概览">
+              {site.stats.map((stat) => (
+                <div key={`${stat.value}-${stat.label}`} className="stat-card">
+                  <dt>{stat.value}</dt>
+                  <dd>{stat.label}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </section>
 
         <section id="about" className="section section--about">
-          <div className="section__inner section__inner--about">
-            <h2 className="section__title section__title--about">关于我</h2>
-            <div className="about about--split">
-              <div className="about__avatar-wrap">
-                <img
-                  src={site.aboutPhoto}
-                  alt=""
-                  className="about__avatar"
-                  width={220}
-                  height={220}
-                  loading="lazy"
-                />
-              </div>
-              <div className="about__main">
-                <p className="about__lead">{site.aboutLead}</p>
-                <div className="about__skill-grid">
-                  {site.aboutSkillColumns.map((col, colIndex) => (
-                    <ul key={colIndex} className="about__skill-col">
-                      {col.map((s) => (
-                        <li key={s}>{s}</li>
+          <div className="section__inner">
+            <div className="section-grid">
+              <div className="section-copy">
+                <SectionHeading index="01" label="关于我" title="站在十字路口之前" />
+                <p className="about__intro">{site.aboutIntro}</p>
+                <div
+                  className={`about__story ${aboutExpanded ? "about__story--expanded" : ""}`}
+                  id="about-story"
+                  aria-hidden={!aboutExpanded}
+                >
+                  <div className="about__story-inner">
+                    <div className="about__text">
+                      {site.aboutParagraphs.map((paragraph) => (
+                        <p key={paragraph}>{paragraph}</p>
                       ))}
-                    </ul>
-                  ))}
+                    </div>
+                  </div>
                 </div>
+                <button
+                  type="button"
+                  className="about__toggle"
+                  aria-expanded={aboutExpanded}
+                  aria-controls="about-story"
+                  onClick={() => setAboutExpanded((expanded) => !expanded)}
+                >
+                  <svg
+                    className="about__toggle-icon"
+                    width="15"
+                    height="15"
+                    viewBox="0 0 15 15"
+                    aria-hidden
+                  >
+                    <path
+                      d={
+                        aboutExpanded
+                          ? "M3.5 9.25 7.5 5.25l4 4"
+                          : "M3.5 5.75 7.5 9.75l4-4"
+                      }
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  {aboutExpanded ? "收起" : "展开完整故事"}
+                </button>
               </div>
+              <aside className="credential-panel" aria-label="核心资质">
+                <h3>核心资质</h3>
+                <ul>
+                  {site.credentials.map((item) => (
+                    <li key={item.title} className="credential-card">
+                      <span className="credential-card__icon" aria-hidden>
+                        ◆
+                      </span>
+                      <span>
+                        <strong>{item.title}</strong>
+                        <small>{item.desc}</small>
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </aside>
             </div>
+          </div>
+        </section>
+
+        <section id="skills" className="section">
+          <div className="section__inner">
+            <SectionHeading index="02" label="技术专长" title="全栈能力 · 跨领域应用" />
+            <ul className="skill-list">
+              {skillCards.map((skill) => (
+                <li key={skill.title} className="skill-card">
+                  <span className="skill-card__icon" aria-hidden>
+                    ✦
+                  </span>
+                  <h3>{skill.title}</h3>
+                  <p>{skill.description}</p>
+                  <ul className="chip-list" aria-label={`${skill.title} 技术`}>
+                    {skill.tags.map((tag) => (
+                      <li key={tag}>{tag}</li>
+                    ))}
+                  </ul>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
 
         <section id="videos" className="section section--videos">
           <div className="section__inner">
-            <h2 className="section__title">产品视频</h2>
-            <p className="section__lead section__lead--videos">
-              过去产品的一些演示与录屏。
-            </p>
+            <SectionHeading index="03" label="产品视频" title="产品演示与录屏" />
+            <p className="section__lead">过去产品的一些演示与录屏，展示实际运行效果。</p>
             <ul className="video-list">
-              {productVideos.map((v) => (
-                <li key={v.file} className="video-card">
+              {productVideos.map((v, index) => (
+                <li
+                  key={v.file}
+                  className={`video-card ${
+                    playingVideos.has(v.file) ? "video-card--playing" : ""
+                  }`}
+                >
                   <div className="video-card__player">
                     <video
                       className="video-card__video"
@@ -223,9 +329,20 @@ function App() {
                       playsInline
                       preload="metadata"
                       src={videoPublicSrc(v.file)}
+                      onPlay={() => markVideoPlaying(v.file, true)}
+                      onPause={() => markVideoPlaying(v.file, false)}
+                      onEnded={() => markVideoPlaying(v.file, false)}
                     >
                       您的浏览器不支持 HTML5 视频。
                     </video>
+                    <div className="video-card__overlay" aria-hidden>
+                      <span className="video-card__play">▶</span>
+                      <strong>{videoMeta[index]?.title ?? `产品视频 ${index + 1}`}</strong>
+                      <small>{videoMeta[index]?.subtitle ?? "产品演示"}</small>
+                    </div>
+                    <span className="video-card__duration">
+                      {videoMeta[index]?.duration ?? ""}
+                    </span>
                   </div>
                 </li>
               ))}
@@ -235,41 +352,65 @@ function App() {
 
         <section id="projects" className="section section--projects">
           <div className="section__inner">
-            <h2 className="section__title">项目</h2>
+            <SectionHeading
+              index="04"
+              label="独立产品"
+              title="在疗愈与技术之间构建的作品"
+            />
             <ul className="project-list">
-              {projects.map((p) => (
+              {projects.map((p, index) => (
                 <li key={p.title} className="project-card">
-                  <div className="project-card__media">
-                    <img src={p.image} alt="" loading="lazy" />
+                  <div className="project-card__index">
+                    {String(index + 1).padStart(2, "0")}
                   </div>
                   <div className="project-card__body">
-                    <div className="project-card__tags">
-                      {p.tags.map((t) => (
-                        <span key={t} className="tag">
-                          {t}
-                        </span>
-                      ))}
+                    <div className="project-card__heading">
+                      <h3 className="project-card__title">{p.title}</h3>
+                      <span className="project-card__subtitle">{p.subtitle}</span>
                     </div>
-                    <h3 className="project-card__title">
-                      {p.title}
-                      {p.subtitle ? (
-                        <span className="project-card__subtitle"> {p.subtitle}</span>
-                      ) : null}
-                    </h3>
+                    <p className="project-card__kicker">
+                      {index === 0
+                        ? "心理健康应用超市"
+                        : index === 1
+                          ? "数字化佛学诵读应用"
+                          : "节气服饰色彩推荐"}
+                    </p>
                     <p className="project-card__desc">{p.description}</p>
-                    <a
-                      className="project-card__cta"
-                      href={p.href}
-                      {...(p.href.startsWith("http")
-                        ? { target: "_blank", rel: "noreferrer" }
-                        : {})}
-                    >
-                      立即体验
-                    </a>
+                    <ul className="chip-list project-card__tags" aria-label={`${p.title} 标签`}>
+                      {p.tags.map((t) => (
+                        <li key={t}>{t}</li>
+                      ))}
+                    </ul>
                   </div>
+                  <a
+                    className="project-card__cta"
+                    href={p.href}
+                    {...(p.href.startsWith("http")
+                      ? { target: "_blank", rel: "noreferrer" }
+                      : {})}
+                  >
+                    立即体验 <span aria-hidden>↗</span>
+                  </a>
                 </li>
               ))}
             </ul>
+          </div>
+        </section>
+
+        <section id="faq" className="section section--faq">
+          <div className="section__inner">
+            <SectionHeading index="05" label="常见问题" title="关于 Mocui 的常见问题" />
+            <p className="section__lead">
+              以下信息有助于 AI 助手、搜索引擎更准确地理解与引用 Mocui 的工作。
+            </p>
+            <div className="faq-list">
+              {faqs.map((faq, index) => (
+                <details key={faq.question} className="faq-item" open={index === 0}>
+                  <summary>{faq.question}</summary>
+                  <p>{faq.answer}</p>
+                </details>
+              ))}
+            </div>
           </div>
         </section>
       </main>
@@ -307,10 +448,35 @@ function App() {
 
       <footer className="footer">
         <div className="footer__inner">
-          <p className="footer__copy">© {new Date().getFullYear()} 保留所有权利</p>
-          <p className="footer__credit">用 ❤ 与 React 制作</p>
+          <div>
+            <p className="footer__copy">Mocui · 独立开发者</p>
+            <p className="footer__credit">疗愈 × 技术 · 常驻杭州 · 2026</p>
+          </div>
+          <HeroSocialRow onOpenWechat={setLightboxSrc} />
+          <p className="footer__copy">© {new Date().getFullYear()} 版权所有</p>
         </div>
       </footer>
+    </div>
+  );
+}
+
+function SectionHeading({
+  index,
+  label,
+  title,
+}: {
+  index: string;
+  label: string;
+  title: string;
+}) {
+  return (
+    <div className="section-heading">
+      <div className="section-label">
+        <span>{index}</span>
+        <i aria-hidden />
+        <span>{label}</span>
+      </div>
+      <h2>{title}</h2>
     </div>
   );
 }
