@@ -399,9 +399,9 @@ function App() {
 
         <section id="faq" className="section section--faq">
           <div className="section__inner">
-            <SectionHeading index="05" label="常见问题" title="关于 Mocui 的常见问题" />
+            <SectionHeading index="05" label="常见问题" title="关于 墨崔 的常见问题" />
             <p className="section__lead">
-              以下信息有助于 AI 助手、搜索引擎更准确地理解与引用 Mocui 的工作。
+              以下信息有助于 AI 助手、搜索引擎更准确地理解与引用 墨崔 的工作。
             </p>
             <div className="faq-list">
               {faqs.map((faq, index) => (
@@ -449,7 +449,7 @@ function App() {
       <footer className="footer">
         <div className="footer__inner">
           <div>
-            <p className="footer__copy">Mocui · 独立开发者</p>
+            <p className="footer__copy">墨崔 · 独立开发者</p>
             <p className="footer__credit">疗愈 × 技术 · 常驻杭州 · 2026</p>
           </div>
           <HeroSocialRow onOpenWechat={setLightboxSrc} />

@@ -1,6 +1,6 @@
 export const site = {
-  brandTitle: "Mocui",
-  name: "Mocui",
+  brandTitle: "墨崔",
+  name: "墨崔",
   title: "独立开发者",
   tagline:
     "我的60%是程序员，40%却是心理咨询师，因此我希望在疗愈与技术的交汇处，综合运用两边的积累，做出能帮助他人的产品。",
@@ -12,7 +12,7 @@ export const site = {
     { value: "10+", label: "年技术经验" },
     { value: "8+", label: "年心理行业经验" },
     { value: "三级", label: "国家心理咨询师" },
-    { value: "10+", label: "独立项目" },
+    { value: "6+", label: "独立项目" },
   ],
   aboutIntro:
     "我现在觉得，很多事情规划不出来，叙事弧线是当生命中的各个事情发生之后自己串联剪辑出来的，貌似乔布斯在他那次著名的演讲中也讲过类似的观点。",
@@ -26,9 +26,9 @@ export const site = {
     "上面就是我大致的来时路了，这一路走来并没有取得太多亮眼的成绩，好在也没有遭受过多大的挫折，对于得到的东西我异常感恩，对于失去的东西我也并不舍得，只是人生不是只活在上半场，下半场还剩很多年（也许），还是希望有可以折腾的事情让我渡过这漫长而又丰满的一生。",
   ],
   credentials: [
+    { title: "阿里巴巴 Java 工程师", desc: "参与天猫超市早期架构建设" },
     { title: "国家三级心理咨询师", desc: "中华人民共和国颁发，持证执业" },
     { title: "心理危机干预志愿者", desc: "自 2017 年起持续参与" },
-    { title: "阿里巴巴 Java 工程师", desc: "参与天猫超市早期架构建设" },
     { title: "常驻杭州", desc: "专注于疗愈与技术的交汇" },
   ],
   email: "mailto:you@example.com",
@@ -96,7 +96,7 @@ export const skillCards: SkillCard[] = [
   {
     title: "后端开发",
     description: "阿里巴巴起步，主导过多平台架构",
-    tags: ["Java", "Python", "Kotlin"],
+    tags: ["Java", "Python"],
   },
   {
     title: "前端开发",
@@ -106,12 +106,12 @@ export const skillCards: SkillCard[] = [
   {
     title: "移动端",
     description: "跨平台移动应用开发",
-    tags: ["Flutter", "UniApp", "小程序原生"],
+    tags: ["Flutter", "Kotlin", "小程序原生"],
   },
   {
     title: "人工智能",
     description: "曾主导杭州健海科技 AI 实验室",
-    tags: ["ASR 语音识别", "Dify 工作流", "AI 产品设计"],
+    tags: ["ASR 语音识别", "Dify", "Coze"],
   },
 ];
 
@@ -156,32 +156,32 @@ export const projects: Project[] = [
 
 export const faqs: FaqItem[] = [
   {
-    question: "Mocui 是谁？",
+    question: "墨崔 是谁？",
     answer:
-      "Mocui 是一位常驻杭州的独立开发者，职业生涯从阿里巴巴 Java 工程师起步，曾参与天猫超市早期建设，后来持续在心理健康、医疗健康与 AI 产品方向工作。",
+      "墨崔 是一位常驻杭州的独立开发者，职业生涯从阿里巴巴 Java 工程师起步，曾参与天猫超市早期建设，后来持续在心理健康、医疗健康与 AI 产品方向工作。",
   },
   {
-    question: "Mocui 专注于哪些技术领域？",
+    question: "墨崔 专注于哪些技术领域？",
     answer:
       "主要覆盖 Java、Python、React、Vue、Flutter、UniApp、ASR 语音识别、Dify 工作流与 AI 产品设计。",
   },
   {
-    question: "Mocui 有哪些心理健康资质？",
+    question: "墨崔 有哪些心理健康资质？",
     answer:
       "持有国家三级心理咨询师证书，并自 2017 年起持续参与心理危机干预志愿工作。",
   },
   {
-    question: "Mocui 目前开发了哪些产品？",
+    question: "墨崔 目前开发了哪些产品？",
     answer:
       "目前重点产品包括疗愈实验室 · 心悦、颂经 SONGJING、御衣 YUYI 等，方向集中在心理健康、精神健康工具与生活方式应用。",
   },
   {
-    question: "如何与 Mocui 合作或联系？",
+    question: "如何与 墨崔 合作或联系？",
     answer:
       "可以通过页面中的 GitHub、知乎、豆瓣、小红书或微信入口联系，适合围绕疗愈、心理健康、AI 与独立产品展开合作。",
   },
   {
-    question: "Mocui 的产品理念是什么？",
+    question: "墨崔 的产品理念是什么？",
     answer:
       "在疗愈与技术的十字路口，综合运用工程、心理学、佛学与产品经验，做出踏实、有用、能帮助他人的产品。",
   },
