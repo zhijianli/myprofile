@@ -507,11 +507,25 @@
 }
 
 .video-card__video {
+  display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
+  background: #000;
   opacity: 0.1;
   transition: opacity 0.24s ease;
+}
+
+.video-card__video:fullscreen,
+.video-card__video:-webkit-full-screen {
+  width: 100%;
+  height: 100%;
+  max-width: 100vw;
+  max-height: 100vh;
+  object-fit: contain;
+  object-position: center;
+  background: #000;
 }
 
 .video-card--playing .video-card__video {

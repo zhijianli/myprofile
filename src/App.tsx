@@ -18,16 +18,25 @@ const navItems = [
 ] as const;
 
 const videoMeta = [
-  { title: "疗愈实验室·心悦", subtitle: "产品演示", duration: "0:09" },
-  { title: "颂经 SONGJING", subtitle: "诵读体验", duration: "0:08" },
-  { title: "御衣 YUYI", subtitle: "节气配色", duration: "0:17" },
-  { title: "心悦 · 功能走览", subtitle: "操作录屏", duration: "0:09" },
-  { title: "颂经 · 完整流程", subtitle: "用户体验", duration: "0:37" },
-  { title: "御衣 · 日常使用", subtitle: "生活场景", duration: "0:51" },
+  { title: "颂经 . SONGJING", subtitle: "产品演示", duration: "0:09" },
+  { title: "颂经 . SONGJING", subtitle: "产品演示", duration: "0:08" },
+  { title: "羽衣 . YUYI", subtitle: "产品演示", duration: "0:17" },
+  { title: "OmMind . 脉轮测评", subtitle: "产品演示", duration: "0:09" },
+  { title: "知己 . 心理测评", subtitle: "产品演示", duration: "0:37" },
+  { title: "宁心 · 服药提醒统计", subtitle: "产品演示", duration: "0:51" },
 ];
 
 function videoPublicSrc(file: string): string {
   return `/videos/${encodeURIComponent(file)}`;
+}
+
+function syncVideoPlayerAspectRatio(video: HTMLVideoElement) {
+  const { videoWidth, videoHeight } = video;
+  if (!videoWidth || !videoHeight) return;
+  video.parentElement?.style.setProperty(
+    "aspect-ratio",
+    `${videoWidth} / ${videoHeight}`,
+  );
 }
 
 function SocialGlyph({ link }: { link: SocialLink }) {
@@ -329,6 +338,9 @@ function App() {
                       playsInline
                       preload="metadata"
                       src={videoPublicSrc(v.file)}
+                      onLoadedMetadata={(event) =>
+                        syncVideoPlayerAspectRatio(event.currentTarget)
+                      }
                       onPlay={() => markVideoPlaying(v.file, true)}
                       onPause={() => markVideoPlaying(v.file, false)}
                       onEnded={() => markVideoPlaying(v.file, false)}

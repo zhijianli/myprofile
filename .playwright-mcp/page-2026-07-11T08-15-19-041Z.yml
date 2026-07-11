@@ -1,0 +1,286 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - link "墨崔" [ref=e5] [cursor=pointer]:
+      - /url: "#top"
+    - navigation "主导航" [ref=e6]:
+      - link "关于我" [ref=e7] [cursor=pointer]:
+        - /url: "#about"
+      - link "技术栈" [ref=e8] [cursor=pointer]:
+        - /url: "#skills"
+      - link "产品视频" [ref=e9] [cursor=pointer]:
+        - /url: "#videos"
+      - link "项目" [ref=e10] [cursor=pointer]:
+        - /url: "#projects"
+      - link "常见问题" [ref=e11] [cursor=pointer]:
+        - /url: "#faq"
+  - main [ref=e12]:
+    - generic [ref=e14]:
+      - generic [ref=e15]:
+        - paragraph [ref=e16]: 独立开发者 · 杭州
+        - heading "墨崔" [level=1] [ref=e17]
+        - heading "疗愈与技术的十字路口" [level=2] [ref=e18]
+        - paragraph [ref=e19]: 我的60%是程序员，40%却是心理咨询师，因此我希望在疗愈与技术的交汇处，综合运用两边的积累，做出能帮助他人的产品。
+        - list "核心标签" [ref=e20]:
+          - listitem [ref=e21]: Java / Python
+          - listitem [ref=e22]: 心理咨询师
+          - listitem [ref=e23]: React / Flutter
+          - listitem [ref=e24]: AI 产品
+        - list [ref=e25]:
+          - listitem [ref=e26]:
+            - link "GitHub" [ref=e27] [cursor=pointer]:
+              - /url: https://github.com/zhijianli
+          - listitem [ref=e31]:
+            - link "知乎" [ref=e32] [cursor=pointer]:
+              - /url: https://www.zhihu.com/people/kong-hao-56-28
+          - listitem [ref=e34]:
+            - link "豆瓣" [ref=e35] [cursor=pointer]:
+              - /url: https://www.douban.com/people/46125148/
+          - listitem [ref=e37]:
+            - link "小红书" [ref=e38] [cursor=pointer]:
+              - /url: https://www.xiaohongshu.com/user/profile/66330c1b00000000070066d7?xsec_token=ABx4h6xx2X4Ll5EjLlcDlfd_E1_RXdAnLEBb7ZuRnvfqQ%3D&xsec_source=pc_search
+          - listitem [ref=e41]:
+            - button "微信" [ref=e42] [cursor=pointer]
+      - generic "个人概览" [ref=e44]:
+        - generic [ref=e45]:
+          - term [ref=e46]: 10+
+          - definition [ref=e47]: 年技术经验
+        - generic [ref=e48]:
+          - term [ref=e49]: 8+
+          - definition [ref=e50]: 年心理行业经验
+        - generic [ref=e51]:
+          - term [ref=e52]: 三级
+          - definition [ref=e53]: 国家心理咨询师
+        - generic [ref=e54]:
+          - term [ref=e55]: 6+
+          - definition [ref=e56]: 独立项目
+    - generic [ref=e59]:
+      - generic [ref=e60]:
+        - generic [ref=e61]:
+          - generic [ref=e62]:
+            - generic [ref=e63]: "01"
+            - generic [ref=e65]: 关于我
+          - heading "站在十字路口之前" [level=2] [ref=e66]
+        - paragraph [ref=e67]: 我现在觉得，很多事情规划不出来，叙事弧线是当生命中的各个事情发生之后自己串联剪辑出来的，貌似乔布斯在他那次著名的演讲中也讲过类似的观点。
+        - generic [ref=e68]:
+          - paragraph [ref=e69]: 我长居杭州，职业生涯从阿里巴巴 Java 工程师起步，做过最出圈的产品是天猫超市，产品足够伟大，但我只是冗长流水线上的一颗螺丝钉，这段生涯对我最直接的意义是让我明白很多做事的逻辑与方法论，但当时的我并不明白自己到底想做什么。
+          - paragraph [ref=e70]: 因此我开启了漫长的奥德赛时期，做过音乐平台，也做过条漫平台，这两样虽然都是我喜欢的东西，但一旦进入到深水区之后，我发现和里面的氛围格格不入，可能这些试错都是必经之路，但于我来说，正面反馈并不多。
+          - paragraph [ref=e71]: 而在这段漫长的奥德赛时期，武志红提供了一个出口，让我遇见了心理咨询，并在后续的学习过程中得到了非常多的正面反馈，因此当时想着我可以尝试着走走心理咨询师这条道路，于是J人开始行动，在德瑞姆学了两年，考了国家心理咨询师三级，在杭州七院开始做危机干预热线，当时觉得挺顺的，觉得自己就是为这个事业而生的，殊不知当你这么想的时候，正是处在愚昧之巅的时候，然后，顺理成章就下滑到绝望之谷，发现自己对于直接做心理咨询师帮助他人，或许并不合适。
+          - paragraph [ref=e72]: 然后，某日在云南大理洱海旁，忽然灵光一闪，想着既然我会技术，又学了那么久的心理学，为何不把这两者结合起来，在这两个领域的交叉地带做些事情呢。
+          - paragraph [ref=e73]: 事情从这里开始有了转变，开始走上一条平稳之坡了，先在杭州心猫网络（心理咨询平台）从零搭建心理测评类产品，一段非常幸福的职业生涯，也让我知道从事自己所热爱的事业是什么感觉。而后，也在杭州健海科技（慢病健康管理平台）主导 AI 实验室并构建 ASR 语音识别引擎，这段时间稍微有点偏离自己的主题，但好在也学习了很多健康管理和AI的知识，也不算浪费，心理健康必将从单维度的心理咨询单兵作战转变到多维度的心理健康管理的持久战。
+          - paragraph [ref=e74]: 接下来，三十五岁，一个临界值的年龄，决定跳出公司的晋升路径，追求一个人操盘一件事情的可能，这个可能也许是自己的产品，也许是与这个赛道的同行者合作开发相关产品，也有可能就不做研发的事情了，毕竟这块事情价值越来越低，不过疗愈这个核心是我一直想要坚持下去的，只要是围绕这件事，其他我保持开放态度。
+          - paragraph [ref=e75]: 上面就是我大致的来时路了，这一路走来并没有取得太多亮眼的成绩，好在也没有遭受过多大的挫折，对于得到的东西我异常感恩，对于失去的东西我也并不舍得，只是人生不是只活在上半场，下半场还剩很多年（也许），还是希望有可以折腾的事情让我渡过这漫长而又丰满的一生。
+        - button "展开完整故事" [ref=e76] [cursor=pointer]
+      - complementary "核心资质" [ref=e79]:
+        - heading "核心资质" [level=3] [ref=e80]
+        - list [ref=e81]:
+          - listitem [ref=e82]:
+            - generic [ref=e83]: ◆
+            - generic [ref=e84]:
+              - strong [ref=e85]: 阿里巴巴 Java 工程师
+              - generic [ref=e86]: 参与天猫超市早期架构建设
+          - listitem [ref=e87]:
+            - generic [ref=e88]: ◆
+            - generic [ref=e89]:
+              - strong [ref=e90]: 国家三级心理咨询师
+              - generic [ref=e91]: 中华人民共和国颁发，持证执业
+          - listitem [ref=e92]:
+            - generic [ref=e93]: ◆
+            - generic [ref=e94]:
+              - strong [ref=e95]: 心理危机干预志愿者
+              - generic [ref=e96]: 自 2017 年起持续参与
+          - listitem [ref=e97]:
+            - generic [ref=e98]: ◆
+            - generic [ref=e99]:
+              - strong [ref=e100]: 常驻杭州
+              - generic [ref=e101]: 专注于疗愈与技术的交汇
+    - generic [ref=e103]:
+      - generic [ref=e104]:
+        - generic [ref=e105]:
+          - generic [ref=e106]: "02"
+          - generic [ref=e108]: 技术专长
+        - heading "全栈能力 · 跨领域应用" [level=2] [ref=e109]
+      - list [ref=e110]:
+        - listitem [ref=e111]:
+          - generic [ref=e112]: ✦
+          - heading "后端开发" [level=3] [ref=e113]
+          - paragraph [ref=e114]: 阿里巴巴起步，主导过多平台架构
+          - list "后端开发 技术" [ref=e115]:
+            - listitem [ref=e116]: Java
+            - listitem [ref=e117]: Python
+        - listitem [ref=e118]:
+          - generic [ref=e119]: ✦
+          - heading "前端开发" [level=3] [ref=e120]
+          - paragraph [ref=e121]: 从心理测评类产品到独立 Web 应用
+          - list "前端开发 技术" [ref=e122]:
+            - listitem [ref=e123]: React
+            - listitem [ref=e124]: Vue
+            - listitem [ref=e125]: JavaScript
+        - listitem [ref=e126]:
+          - generic [ref=e127]: ✦
+          - heading "移动端" [level=3] [ref=e128]
+          - paragraph [ref=e129]: 跨平台移动应用开发
+          - list "移动端 技术" [ref=e130]:
+            - listitem [ref=e131]: Flutter
+            - listitem [ref=e132]: Kotlin
+            - listitem [ref=e133]: 小程序原生
+        - listitem [ref=e134]:
+          - generic [ref=e135]: ✦
+          - heading "人工智能" [level=3] [ref=e136]
+          - paragraph [ref=e137]: 曾主导杭州健海科技 AI 实验室
+          - list "人工智能 技术" [ref=e138]:
+            - listitem [ref=e139]: ASR 语音识别
+            - listitem [ref=e140]: Dify
+            - listitem [ref=e141]: Coze
+    - generic [ref=e143]:
+      - generic [ref=e144]:
+        - generic [ref=e145]:
+          - generic [ref=e146]: "03"
+          - generic [ref=e148]: 产品视频
+        - heading "产品演示与录屏" [level=2] [ref=e149]
+      - paragraph [ref=e150]: 过去产品的一些演示与录屏，展示实际运行效果。
+      - list [ref=e151]:
+        - listitem [ref=e152]:
+          - generic [ref=e153]:
+            - generic [ref=e154]: 您的浏览器不支持 HTML5 视频。
+            - generic:
+              - generic: ▶
+              - strong: 疗愈实验室·心悦
+              - generic: 产品演示
+            - generic [ref=e155]: 0:09
+        - listitem [ref=e156]:
+          - generic [ref=e157]:
+            - generic [ref=e158]: 您的浏览器不支持 HTML5 视频。
+            - generic:
+              - generic: ▶
+              - strong: 颂经 SONGJING
+              - generic: 诵读体验
+            - generic [ref=e159]: 0:08
+        - listitem [ref=e160]:
+          - generic [ref=e161]:
+            - generic [ref=e162]: 您的浏览器不支持 HTML5 视频。
+            - generic:
+              - generic: ▶
+              - strong: 御衣 YUYI
+              - generic: 节气配色
+            - generic [ref=e163]: 0:17
+        - listitem [ref=e164]:
+          - generic [ref=e165]:
+            - generic [ref=e166]: 您的浏览器不支持 HTML5 视频。
+            - generic:
+              - generic: ▶
+              - strong: 心悦 · 功能走览
+              - generic: 操作录屏
+            - generic [ref=e167]: 0:09
+        - listitem [ref=e168]:
+          - generic [ref=e169]:
+            - generic [ref=e170]: 您的浏览器不支持 HTML5 视频。
+            - generic:
+              - generic: ▶
+              - strong: 颂经 · 完整流程
+              - generic: 用户体验
+            - generic [ref=e171]: 0:37
+        - listitem [ref=e172]:
+          - generic [ref=e173]:
+            - generic [ref=e174]: 您的浏览器不支持 HTML5 视频。
+            - generic:
+              - generic: ▶
+              - strong: 御衣 · 日常使用
+              - generic: 生活场景
+            - generic [ref=e175]: 0:51
+    - generic [ref=e177]:
+      - generic [ref=e178]:
+        - generic [ref=e179]:
+          - generic [ref=e180]: "04"
+          - generic [ref=e182]: 独立产品
+        - heading "在疗愈与技术之间构建的作品" [level=2] [ref=e183]
+      - list [ref=e184]:
+        - listitem [ref=e185]:
+          - generic [ref=e186]: "01"
+          - generic [ref=e187]:
+            - generic [ref=e188]:
+              - heading "疗愈实验室 · 心悦" [level=3] [ref=e189]
+              - generic [ref=e190]: 心理健康平台
+            - paragraph [ref=e191]: 心理健康应用超市
+            - paragraph [ref=e192]: 心悦旗下的心理健康应用超市，以「让心灵有所依托」为理念，为心理健康服务提供基础设施入口。
+            - list "疗愈实验室 · 心悦 标签" [ref=e193]:
+              - listitem [ref=e194]: 心理健康
+              - listitem [ref=e195]: AI
+              - listitem [ref=e196]: Web
+          - link "立即体验" [ref=e197] [cursor=pointer]:
+            - /url: https://supermarket.xwxinli.com/supermarket
+            - text: 立即体验
+            - generic [ref=e198]: ↗
+        - listitem [ref=e199]:
+          - generic [ref=e200]: "02"
+          - generic [ref=e201]:
+            - generic [ref=e202]:
+              - heading "颂经 SONGJING" [level=3] [ref=e203]
+              - generic [ref=e204]: 精神健康工具
+            - paragraph [ref=e205]: 数字化佛学诵读应用
+            - paragraph [ref=e206]: 跟随经文诵读，体会「空」的意蕴。将佛学经典与 AI 语音技术结合，为用户提供沉浸式冥想诵读体验。
+            - list "颂经 SONGJING 标签" [ref=e207]:
+              - listitem [ref=e208]: AI
+              - listitem [ref=e209]: Python
+              - listitem [ref=e210]: Flutter
+          - link "立即体验" [ref=e211] [cursor=pointer]:
+            - /url: http://songjing.menganhealth.cn/
+            - text: 立即体验
+            - generic [ref=e212]: ↗
+        - listitem [ref=e213]:
+          - generic [ref=e214]: "03"
+          - generic [ref=e215]:
+            - generic [ref=e216]:
+              - heading "御衣 YUYI" [level=3] [ref=e217]
+              - generic [ref=e218]: 生活方式工具
+            - paragraph [ref=e219]: 节气服饰色彩推荐
+            - paragraph [ref=e220]: 依照二十四节气与阳历推算，推荐每日适合的服饰颜色搭配。将中国传统时令智慧与现代审美结合。
+            - list "御衣 YUYI 标签" [ref=e221]:
+              - listitem [ref=e222]: AI
+              - listitem [ref=e223]: Python
+              - listitem [ref=e224]: UniApp
+          - link "立即体验" [ref=e225] [cursor=pointer]:
+            - /url: http://menganhealth.cn:9000/build/web/#/
+            - text: 立即体验
+            - generic [ref=e226]: ↗
+    - generic [ref=e228]:
+      - generic [ref=e229]:
+        - generic [ref=e230]:
+          - generic [ref=e231]: "05"
+          - generic [ref=e233]: 常见问题
+        - heading "关于 墨崔 的常见问题" [level=2] [ref=e234]
+      - paragraph [ref=e235]: 以下信息有助于 AI 助手、搜索引擎更准确地理解与引用 墨崔 的工作。
+      - generic [ref=e236]:
+        - group [ref=e237]:
+          - generic "墨崔 是谁？ -" [ref=e238] [cursor=pointer]
+          - paragraph [ref=e239]: 墨崔 是一位常驻杭州的独立开发者，职业生涯从阿里巴巴 Java 工程师起步，曾参与天猫超市早期建设，后来持续在心理健康、医疗健康与 AI 产品方向工作。
+        - group [ref=e240]:
+          - generic "墨崔 专注于哪些技术领域？ +" [ref=e241] [cursor=pointer]
+        - group [ref=e242]:
+          - generic "墨崔 有哪些心理健康资质？ +" [ref=e243] [cursor=pointer]
+        - group [ref=e244]:
+          - generic "墨崔 目前开发了哪些产品？ +" [ref=e245] [cursor=pointer]
+        - group [ref=e246]:
+          - generic "如何与 墨崔 合作或联系？ +" [ref=e247] [cursor=pointer]
+        - group [ref=e248]:
+          - generic "墨崔 的产品理念是什么？ +" [ref=e249] [cursor=pointer]
+  - contentinfo [ref=e250]:
+    - generic [ref=e251]:
+      - generic [ref=e252]:
+        - paragraph [ref=e253]: 墨崔 · 独立开发者
+        - paragraph [ref=e254]: 疗愈 × 技术 · 常驻杭州 · 2026
+      - list [ref=e255]:
+        - listitem [ref=e256]:
+          - link "GitHub" [ref=e257] [cursor=pointer]:
+            - /url: https://github.com/zhijianli
+        - listitem [ref=e261]:
+          - link "知乎" [ref=e262] [cursor=pointer]:
+            - /url: https://www.zhihu.com/people/kong-hao-56-28
+        - listitem [ref=e264]:
+          - link "豆瓣" [ref=e265] [cursor=pointer]:
+            - /url: https://www.douban.com/people/46125148/
+        - listitem [ref=e267]:
+          - link "小红书" [ref=e268] [cursor=pointer]:
+            - /url: https://www.xiaohongshu.com/user/profile/66330c1b00000000070066d7?xsec_token=ABx4h6xx2X4Ll5EjLlcDlfd_E1_RXdAnLEBb7ZuRnvfqQ%3D&xsec_source=pc_search
+        - listitem [ref=e271]:
+          - button "微信" [ref=e272] [cursor=pointer]
+      - paragraph [ref=e274]: © 2026 版权所有
