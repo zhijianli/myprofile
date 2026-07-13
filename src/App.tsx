@@ -18,25 +18,17 @@ const navItems = [
 ] as const;
 
 const videoMeta = [
-  { title: "颂经 . SONGJING", subtitle: "产品演示", duration: "0:09" },
-  { title: "颂经 . SONGJING", subtitle: "产品演示", duration: "0:08" },
+  { title: "诵经 . SONGJING", subtitle: "产品演示", duration: "0:09" },
+  { title: "宁心 · 服药提醒统计", subtitle: "产品演示", duration: "0:51" },
   { title: "羽衣 . YUYI", subtitle: "产品演示", duration: "0:17" },
   { title: "OmMind . 脉轮测评", subtitle: "产品演示", duration: "0:09" },
   { title: "知己 . 心理测评", subtitle: "产品演示", duration: "0:37" },
-  { title: "宁心 · 服药提醒统计", subtitle: "产品演示", duration: "0:51" },
+  { title: "心蜗 . 心理支持系统", subtitle: "产品演示", duration: "0:37" },
+
 ];
 
 function videoPublicSrc(file: string): string {
   return `/videos/${encodeURIComponent(file)}`;
-}
-
-function syncVideoPlayerAspectRatio(video: HTMLVideoElement) {
-  const { videoWidth, videoHeight } = video;
-  if (!videoWidth || !videoHeight) return;
-  video.parentElement?.style.setProperty(
-    "aspect-ratio",
-    `${videoWidth} / ${videoHeight}`,
-  );
 }
 
 function SocialGlyph({ link }: { link: SocialLink }) {
@@ -232,7 +224,7 @@ function App() {
           <div className="section__inner">
             <div className="section-grid">
               <div className="section-copy">
-                <SectionHeading index="01" label="关于我" title="站在十字路口之前" />
+                <SectionHeading index="01" label="关于我" title="走到十字路口之前" />
                 <p className="about__intro">{site.aboutIntro}</p>
                 <div
                   className={`about__story ${aboutExpanded ? "about__story--expanded" : ""}`}
@@ -321,7 +313,7 @@ function App() {
 
         <section id="videos" className="section section--videos">
           <div className="section__inner">
-            <SectionHeading index="03" label="产品视频" title="产品演示与录屏" />
+            <SectionHeading index="03" label="产品视频" title="独立开发产品演示" />
             <p className="section__lead">过去产品的一些演示与录屏，展示实际运行效果。</p>
             <ul className="video-list">
               {productVideos.map((v, index) => (
@@ -338,9 +330,6 @@ function App() {
                       playsInline
                       preload="metadata"
                       src={videoPublicSrc(v.file)}
-                      onLoadedMetadata={(event) =>
-                        syncVideoPlayerAspectRatio(event.currentTarget)
-                      }
                       onPlay={() => markVideoPlaying(v.file, true)}
                       onPause={() => markVideoPlaying(v.file, false)}
                       onEnded={() => markVideoPlaying(v.file, false)}

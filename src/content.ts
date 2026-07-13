@@ -135,7 +135,7 @@ export const projects: Project[] = [
     href: "https://supermarket.xwxinli.com/supermarket",
   },
   {
-    title: "颂经 SONGJING",
+    title: "诵经 SONGJING",
     subtitle: "精神健康工具",
     description:
       "跟随经文诵读，体会「空」的意蕴。将佛学经典与 AI 语音技术结合，为用户提供沉浸式冥想诵读体验。",
@@ -144,7 +144,7 @@ export const projects: Project[] = [
     href: "http://songjing.menganhealth.cn/",
   },
   {
-    title: "御衣 YUYI",
+    title: "羽衣 YUYI",
     subtitle: "生活方式工具",
     description:
       "依照二十四节气与阳历推算，推荐每日适合的服饰颜色搭配。将中国传统时令智慧与现代审美结合。",
@@ -173,7 +173,7 @@ export const faqs: FaqItem[] = [
   {
     question: "墨崔 目前开发了哪些产品？",
     answer:
-      "目前重点产品包括疗愈实验室 · 心悦、颂经 SONGJING、御衣 YUYI 等，方向集中在心理健康、精神健康工具与生活方式应用。",
+      "目前重点产品包括疗愈实验室 · 心悦、诵经 SONGJING、羽衣 YUYI 等，方向集中在心理健康、精神健康工具与生活方式应用。",
   },
   {
     question: "如何与 墨崔 合作或联系？",

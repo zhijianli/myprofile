@@ -59,7 +59,7 @@
           - generic [ref=e62]:
             - generic [ref=e63]: "01"
             - generic [ref=e65]: 关于我
-          - heading "站在十字路口之前" [level=2] [ref=e66]
+          - heading "走到十字路口之前" [level=2] [ref=e66]
         - paragraph [ref=e67]: 我现在觉得，很多事情规划不出来，叙事弧线是当生命中的各个事情发生之后自己串联剪辑出来的，貌似乔布斯在他那次著名的演讲中也讲过类似的观点。
         - generic [ref=e68]:
           - paragraph [ref=e69]: 我长居杭州，职业生涯从阿里巴巴 Java 工程师起步，做过最出圈的产品是天猫超市，产品足够伟大，但我只是冗长流水线上的一颗螺丝钉，这段生涯对我最直接的意义是让我明白很多做事的逻辑与方法论，但当时的我并不明白自己到底想做什么。
@@ -136,7 +136,7 @@
         - generic [ref=e145]:
           - generic [ref=e146]: "03"
           - generic [ref=e148]: 产品视频
-        - heading "产品演示与录屏" [level=2] [ref=e149]
+        - heading "独立开发产品演示" [level=2] [ref=e149]
       - paragraph [ref=e150]: 过去产品的一些演示与录屏，展示实际运行效果。
       - list [ref=e151]:
         - listitem [ref=e152]:
@@ -152,7 +152,7 @@
             - generic [ref=e158]: 您的浏览器不支持 HTML5 视频。
             - generic:
               - generic: ▶
-              - strong: 颂经 SONGJING
+              - strong: 诵经 SONGJING
               - generic: 诵读体验
             - generic [ref=e159]: 0:08
         - listitem [ref=e160]:
@@ -176,7 +176,7 @@
             - generic [ref=e170]: 您的浏览器不支持 HTML5 视频。
             - generic:
               - generic: ▶
-              - strong: 颂经 · 完整流程
+              - strong: 诵经 · 完整流程
               - generic: 用户体验
             - generic [ref=e171]: 0:37
         - listitem [ref=e172]:
@@ -214,11 +214,11 @@
           - generic [ref=e200]: "02"
           - generic [ref=e201]:
             - generic [ref=e202]:
-              - heading "颂经 SONGJING" [level=3] [ref=e203]
+              - heading "诵经 SONGJING" [level=3] [ref=e203]
               - generic [ref=e204]: 精神健康工具
             - paragraph [ref=e205]: 数字化佛学诵读应用
             - paragraph [ref=e206]: 跟随经文诵读，体会「空」的意蕴。将佛学经典与 AI 语音技术结合，为用户提供沉浸式冥想诵读体验。
-            - list "颂经 SONGJING 标签" [ref=e207]:
+            - list "诵经 SONGJING 标签" [ref=e207]:
               - listitem [ref=e208]: AI
               - listitem [ref=e209]: Python
               - listitem [ref=e210]: Flutter
