@@ -6,7 +6,7 @@ export const site = {
     "我的60%是程序员，40%却是心理咨询师，因此我希望在疗愈与技术的交汇处，综合运用两边的积累，做出能帮助他人的产品。",
   aboutPhoto: "/images/coding.png",
   heroEyebrow: "独立开发者 · 杭州",
-  heroTitle: "疗愈与技术的十字路口",
+  heroTitle: "站在疗愈与技术的十字路口",
   heroTags: ["Java / Python", "心理咨询师", "React / Flutter", "AI 产品"],
   stats: [
     { value: "10+", label: "年技术经验" },
