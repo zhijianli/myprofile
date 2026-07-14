@@ -160,7 +160,7 @@ export const products: Product[] = [
     duration: "0:09",
     status: "online",
     accent: "#6b4f8a",
-    href: "http://songjing.menganhealth.cn/",
+    href: "https://songjing.menganhealth.cn/",
   },
   {
     title: "羽衣 YUYI",
@@ -174,7 +174,7 @@ export const products: Product[] = [
     duration: "0:17",
     status: "online",
     accent: "#b85c38",
-    href: "http://menganhealth.cn:9000/build/web/#/",
+    href: "https://yuyi.menganhealth.cn/",
   },
   {
     title: "心蜗",

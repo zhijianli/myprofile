@@ -223,7 +223,7 @@
               - listitem [ref=e209]: Python
               - listitem [ref=e210]: Flutter
           - link "立即体验" [ref=e211] [cursor=pointer]:
-            - /url: http://songjing.menganhealth.cn/
+            - /url: https://songjing.menganhealth.cn/
             - text: 立即体验
             - generic [ref=e212]: ↗
         - listitem [ref=e213]:
@@ -239,7 +239,7 @@
               - listitem [ref=e223]: Python
               - listitem [ref=e224]: UniApp
           - link "立即体验" [ref=e225] [cursor=pointer]:
-            - /url: http://menganhealth.cn:9000/build/web/#/
+            - /url: https://yuyi.menganhealth.cn/
             - text: 立即体验
             - generic [ref=e226]: ↗
     - generic [ref=e228]:
