@@ -11,7 +11,7 @@ export const site = {
   stats: [
     { value: "10+", label: "年技术经验" },
     { value: "8+", label: "年心理行业经验" },
-    { value: "三级", label: "国家心理咨询师" },
+    { value: "常驻", label: "杭州" },
     { value: "6+", label: "独立项目" },
   ],
   aboutIntro:
@@ -25,11 +25,37 @@ export const site = {
     "接下来，三十五岁，一个临界值的年龄，决定跳出公司的晋升路径，追求一个人操盘一件事情的可能，这个可能也许是自己的产品，也许是与这个赛道的同行者合作开发相关产品，也有可能就不做研发的事情了，毕竟这块事情价值越来越低，不过疗愈这个核心是我一直想要坚持下去的，只要是围绕这件事，其他我保持开放态度。",
     "上面就是我大致的来时路了，这一路走来并没有取得太多亮眼的成绩，好在也没有遭受过多大的挫折，对于得到的东西我异常感恩，对于失去的东西我也并不舍得，只是人生不是只活在上半场，下半场还剩很多年（也许），还是希望有可以折腾的事情让我渡过这漫长而又丰满的一生。",
   ],
-  credentials: [
-    { title: "阿里巴巴 Java 工程师", desc: "参与天猫超市早期架构建设" },
-    { title: "国家三级心理咨询师", desc: "中华人民共和国颁发，持证执业" },
-    { title: "心理危机干预志愿者", desc: "自 2017 年起持续参与" },
-    { title: "常驻杭州", desc: "专注于疗愈与技术的交汇" },
+  timeline: [
+    {
+      period: "2009",
+      title: "阿里巴巴 Java 工程师",
+      desc: "参与天猫超市早期建设，学会做事的逻辑与方法论",
+    },
+    {
+      period: "2009–2016",
+      title: "奥德赛时期",
+      desc: "辗转音乐平台与条漫平台，在喜欢的事情里反复试错",
+    },
+    {
+      period: "2013",
+      title: "走进心理咨询",
+      desc: "德瑞姆学了两年，考取国家三级，在杭州七院做危机干预热线",
+    },
+    {
+      period: "2016",
+      title: "大理洱海顿悟",
+      desc: "决定把技术与心理学放到同一个交叉地带去做产品",
+    },
+    {
+      period: "2017–2022",
+      title: "心猫网络 → 健海科技",
+      desc: "从零搭建心理测评；主导 AI 实验室并构建 ASR 引擎",
+    },
+    {
+      period: "2022–至今",
+      title: "走向独立开发",
+      desc: "跳出公司路径，在疗愈与技术的交汇处持续操盘",
+    },
   ],
   email: "mailto:you@example.com",
   social: [
@@ -67,18 +93,24 @@ export type SocialLink =
     }
   | { label: string; href: string; svg: "github"; icon?: undefined };
 
-export type Project = {
-  title: string;
-  subtitle: string;
-  description: string;
-  image: string;
-  tags: string[];
-  href: string;
-};
+export type ProductStatus = "online" | "soon" | "offline";
 
 /** 对应 `public/videos/` 下的文件名；展示时会对路径做编码以支持空格等特殊字符 */
-export type ProductVideo = {
-  file: string;
+export type Product = {
+  title: string;
+  /** 视频封面上的短标签 */
+  subtitle: string;
+  kicker: string;
+  description: string;
+  tags: string[];
+  video: string;
+  /** 封面图，未播放时作为 poster */
+  cover: string;
+  duration: string;
+  status: ProductStatus;
+  /** 视频面板主题色，与 Figma 卡片氛围一致 */
+  accent: string;
+  href?: string;
 };
 
 export type SkillCard = {
@@ -115,42 +147,87 @@ export const skillCards: SkillCard[] = [
   },
 ];
 
-export const productVideos: ProductVideo[] = [
-  { file: "1.mp4" },
-  { file: "2.mp4" },
-  { file: "3.mp4" },
-  { file: "4.mp4" },
-  { file: "5.mp4" },
-  { file: "6.mp4" },
-];
-
-export const projects: Project[] = [
-  {
-    title: "疗愈实验室 · 心悦",
-    subtitle: "心理健康平台",
-    description:
-      "心悦旗下的心理健康应用超市，以「让心灵有所依托」为理念，为心理健康服务提供基础设施入口。",
-    image: "/images/healing-lab-cover.png",
-    tags: ["心理健康", "AI", "Web"],
-    href: "https://supermarket.xwxinli.com/supermarket",
-  },
+export const products: Product[] = [
   {
     title: "诵经 SONGJING",
-    subtitle: "精神健康工具",
+    subtitle: "诵读投影",
+    kicker: "心经诵读页面",
     description:
-      "跟随经文诵读，体会「空」的意蕴。将佛学经典与 AI 语音技术结合，为用户提供沉浸式冥想诵读体验。",
-    image: "/images/songjing-cover.png",
+      "页面上呈现《心经》经文，随着经文逐字「沙化」，用户可跟随诵读，在视觉上体会「空」的意蕴。这种聚散视觉也会在潜意识层面，帮助用户对所执着的人或事进行解绑。",
     tags: ["AI", "Python", "Flutter"],
+    video: "1.mp4",
+    cover: "/images/songjing-poster.jpg",
+    duration: "0:09",
+    status: "online",
+    accent: "#6b4f8a",
     href: "http://songjing.menganhealth.cn/",
   },
   {
     title: "羽衣 YUYI",
-    subtitle: "生活方式工具",
+    subtitle: "节气配色",
+    kicker: "节气服饰色彩推荐",
     description:
-      "依照二十四节气与阳历推算，推荐每日适合的服饰颜色搭配。将中国传统时令智慧与现代审美结合。",
-    image: "/images/yuyi-cover.png",
+      "依照二十四节气与农历推算，推荐每日适合与避讳的服饰颜色搭配，帮助用户在日常穿搭中参考传统古老智慧。",
     tags: ["AI", "Python", "UniApp"],
+    video: "3.mp4",
+    cover: "/images/yuyi-poster.jpg",
+    duration: "0:17",
+    status: "online",
+    accent: "#b85c38",
     href: "http://menganhealth.cn:9000/build/web/#/",
+  },
+  {
+    title: "心蜗",
+    subtitle: "基础设施",
+    kicker: "心理咨询师支持系统",
+    description:
+      "面向咨询师的日常工作支持系统，协助完成初始评估、预约排班与跟进等繁琐事务，并搭载 AI 来访、AI 督导、AI 咨询等能力，帮助咨询师更快成长。",
+    tags: ["心理健康", "AI", "小程序"],
+    video: "6.mp4",
+    cover: "/images/xinwo-poster.jpg",
+    duration: "0:37",
+    status: "online",
+    accent: "#2a5c45",
+    href: "https://supermarket.xwxinli.com/login",
+  },
+  {
+    title: "宁心安愈",
+    subtitle: "家属陪伴",
+    kicker: "用药记录与统计工具",
+    description:
+      "为精神分裂症患者家属设计的用药记录与统计工具，帮助回溯过往记录，洞察更有效的照护方法，并在一定程度上缓解家属的焦虑情绪。",
+    tags: ["心理健康", "用药记录", "家属支持"],
+    video: "2.mp4",
+    cover: "/images/ningxin-poster.jpg",
+    duration: "0:51",
+    status: "soon",
+    accent: "#3a6080",
+  },
+  {
+    title: "脉轮测评",
+    subtitle: "能量评估",
+    kicker: "七大脉轮特质测评",
+    description:
+      "类似传统非投射性测评，帮助用户了解自身七大脉轮的强弱属性，并依据脉轮特点推荐相应的水晶饰品。",
+    tags: ["测评", "脉轮", "水晶"],
+    video: "4.mp4",
+    cover: "/images/ommind-poster.jpg",
+    duration: "0:09",
+    status: "offline",
+    accent: "#5a5a7a",
+  },
+  {
+    title: "知己测试",
+    subtitle: "了解自己",
+    kicker: "心理测评集合页",
+    description:
+      "为心猫公司打造的传统心理测评集合页，抑郁、焦虑、SCL-90 等 40 多个测评均可在此完成。",
+    tags: ["心理测评", "抑郁", "焦虑"],
+    video: "5.mp4",
+    cover: "/images/zhiji-poster.jpg",
+    duration: "0:37",
+    status: "offline",
+    accent: "#7a4a4a",
   },
 ];
 
@@ -168,12 +245,12 @@ export const faqs: FaqItem[] = [
   {
     question: "墨崔 有哪些心理健康资质？",
     answer:
-      "持有国家三级心理咨询师证书，并自 2017 年起持续参与心理危机干预志愿工作。",
+      "持有国家三级心理咨询师证书，并自 2017 年起连续四年持续参与心理危机干预志愿工作。",
   },
   {
     question: "墨崔 目前开发了哪些产品？",
     answer:
-      "目前重点产品包括疗愈实验室 · 心悦、诵经 SONGJING、羽衣 YUYI 等，方向集中在心理健康、精神健康工具与生活方式应用。",
+      "目前产品包括诵经 SONGJING、羽衣 YUYI、心蜗等，宁心安愈即将上线；另有脉轮测评、知己测试等历史产品。方向集中在心理健康、精神健康工具与生活方式应用。",
   },
   {
     question: "如何与 墨崔 合作或联系？",

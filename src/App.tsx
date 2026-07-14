@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import {
   faqs,
-  productVideos,
-  projects,
+  products,
   site,
   skillCards,
+  type ProductStatus,
   type SocialLink,
 } from "./content";
 import "./App.css";
@@ -12,20 +12,15 @@ import "./App.css";
 const navItems = [
   { id: "about", label: "关于我" },
   { id: "skills", label: "技术栈" },
-  { id: "videos", label: "产品视频" },
-  { id: "projects", label: "项目" },
+  { id: "products", label: "产品" },
   { id: "faq", label: "常见问题" },
 ] as const;
 
-const videoMeta = [
-  { title: "诵经 . SONGJING", subtitle: "产品演示", duration: "0:09" },
-  { title: "宁心 · 服药提醒统计", subtitle: "产品演示", duration: "0:51" },
-  { title: "羽衣 . YUYI", subtitle: "产品演示", duration: "0:17" },
-  { title: "OmMind . 脉轮测评", subtitle: "产品演示", duration: "0:09" },
-  { title: "知己 . 心理测评", subtitle: "产品演示", duration: "0:37" },
-  { title: "心蜗 . 心理支持系统", subtitle: "产品演示", duration: "0:37" },
-
-];
+const statusLabel: Record<ProductStatus, string> = {
+  online: "在线",
+  soon: "即将上线",
+  offline: "已下线",
+};
 
 function videoPublicSrc(file: string): string {
   return `/videos/${encodeURIComponent(file)}`;
@@ -269,21 +264,17 @@ function App() {
                   {aboutExpanded ? "收起" : "展开完整故事"}
                 </button>
               </div>
-              <aside className="credential-panel" aria-label="核心资质">
-                <h3>核心资质</h3>
-                <ul>
-                  {site.credentials.map((item) => (
-                    <li key={item.title} className="credential-card">
-                      <span className="credential-card__icon" aria-hidden>
-                        ◆
-                      </span>
-                      <span>
-                        <strong>{item.title}</strong>
-                        <small>{item.desc}</small>
-                      </span>
+              <aside className="timeline-panel" aria-label="来时路">
+                <h3>来时路</h3>
+                <ol className="timeline">
+                  {site.timeline.map((item) => (
+                    <li key={item.title} className="timeline__item">
+                      <span className="timeline__period">{item.period}</span>
+                      <strong className="timeline__title">{item.title}</strong>
+                      <small className="timeline__desc">{item.desc}</small>
                     </li>
                   ))}
-                </ul>
+                </ol>
               </aside>
             </div>
           </div>
@@ -311,99 +302,92 @@ function App() {
           </div>
         </section>
 
-        <section id="videos" className="section section--videos">
+        <section id="products" className="section section--products">
           <div className="section__inner">
-            <SectionHeading index="03" label="产品视频" title="独立开发产品演示" />
-            <p className="section__lead">过去产品的一些演示与录屏，展示实际运行效果。</p>
-            <ul className="video-list">
-              {productVideos.map((v, index) => (
-                <li
-                  key={v.file}
-                  className={`video-card ${
-                    playingVideos.has(v.file) ? "video-card--playing" : ""
-                  }`}
-                >
-                  <div className="video-card__player">
-                    <video
-                      className="video-card__video"
-                      controls
-                      playsInline
-                      preload="metadata"
-                      src={videoPublicSrc(v.file)}
-                      onPlay={() => markVideoPlaying(v.file, true)}
-                      onPause={() => markVideoPlaying(v.file, false)}
-                      onEnded={() => markVideoPlaying(v.file, false)}
-                    >
-                      您的浏览器不支持 HTML5 视频。
-                    </video>
-                    <div className="video-card__overlay" aria-hidden>
-                      <span className="video-card__play">▶</span>
-                      <strong>{videoMeta[index]?.title ?? `产品视频 ${index + 1}`}</strong>
-                      <small>{videoMeta[index]?.subtitle ?? "产品演示"}</small>
-                    </div>
-                    <span className="video-card__duration">
-                      {videoMeta[index]?.duration ?? ""}
-                    </span>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-
-        <section id="projects" className="section section--projects">
-          <div className="section__inner">
-            <SectionHeading
-              index="04"
-              label="独立产品"
-              title="在疗愈与技术之间构建的作品"
-            />
-            <ul className="project-list">
-              {projects.map((p, index) => (
-                <li key={p.title} className="project-card">
-                  <div className="project-card__index">
-                    {String(index + 1).padStart(2, "0")}
-                  </div>
-                  <div className="project-card__body">
-                    <div className="project-card__heading">
-                      <h3 className="project-card__title">{p.title}</h3>
-                      <span className="project-card__subtitle">{p.subtitle}</span>
-                    </div>
-                    <p className="project-card__kicker">
-                      {index === 0
-                        ? "心理健康应用超市"
-                        : index === 1
-                          ? "数字化佛学诵读应用"
-                          : "节气服饰色彩推荐"}
-                    </p>
-                    <p className="project-card__desc">{p.description}</p>
-                    <ul className="chip-list project-card__tags" aria-label={`${p.title} 标签`}>
-                      {p.tags.map((t) => (
-                        <li key={t}>{t}</li>
-                      ))}
-                    </ul>
-                  </div>
-                  <a
-                    className="project-card__cta"
-                    href={p.href}
-                    {...(p.href.startsWith("http")
-                      ? { target: "_blank", rel: "noreferrer" }
-                      : {})}
+            <SectionHeading index="03" label="产品视频" title="产品演示与录屏" />
+            <p className="section__lead">
+              过去产品的一些演示与录屏，展示实际运行效果。
+            </p>
+            <ul className="product-list">
+              {products.map((p) => {
+                const playing = playingVideos.has(p.video);
+                return (
+                  <li
+                    key={p.title}
+                    className={`product-card ${playing ? "product-card--playing" : ""}`}
+                    style={{ "--product-accent": p.accent } as React.CSSProperties}
                   >
-                    立即体验 <span aria-hidden>↗</span>
-                  </a>
-                </li>
-              ))}
+                    <div
+                      className="product-card__media"
+                      onClick={(e) => {
+                        if (playing) return;
+                        const video = e.currentTarget.querySelector("video");
+                        void video?.play();
+                      }}
+                    >
+                      <img
+                        className="product-card__poster"
+                        src={p.cover}
+                        alt=""
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      <video
+                        className="product-card__video"
+                        controls={playing}
+                        playsInline
+                        preload="metadata"
+                        poster={p.cover}
+                        src={videoPublicSrc(p.video)}
+                        onPlay={() => markVideoPlaying(p.video, true)}
+                        onPause={() => markVideoPlaying(p.video, false)}
+                        onEnded={() => markVideoPlaying(p.video, false)}
+                      >
+                        您的浏览器不支持 HTML5 视频。
+                      </video>
+                      <div className="product-card__tint" aria-hidden />
+                      <div className="product-card__overlay" aria-hidden>
+                        <span className="product-card__play">▶</span>
+                        <strong>{p.title}</strong>
+                        <small>{p.subtitle}</small>
+                      </div>
+                      <span className="product-card__duration">{p.duration}</span>
+                    </div>
+                    <div className="product-card__body">
+                      <div>
+                        <div className="product-card__heading">
+                          <h3 className="product-card__title">{p.title}</h3>
+                          <span
+                            className={`product-card__badge product-card__badge--${p.status}`}
+                          >
+                            {statusLabel[p.status]}
+                          </span>
+                        </div>
+                        <p className="product-card__kicker">{p.kicker}</p>
+                        <p className="product-card__desc">{p.description}</p>
+                      </div>
+                      {p.href ? (
+                        <a
+                          className="product-card__cta"
+                          href={p.href}
+                          {...(p.href.startsWith("http")
+                            ? { target: "_blank", rel: "noreferrer" }
+                            : {})}
+                        >
+                          立即体验 <span aria-hidden>↗</span>
+                        </a>
+                      ) : null}
+                    </div>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </section>
 
         <section id="faq" className="section section--faq">
           <div className="section__inner">
-            <SectionHeading index="05" label="常见问题" title="关于 墨崔 的常见问题" />
-            <p className="section__lead">
-              以下信息有助于 AI 助手、搜索引擎更准确地理解与引用 墨崔 的工作。
-            </p>
+            <SectionHeading index="04" label="常见问题" title="关于 墨崔 的常见问题" />
             <div className="faq-list">
               {faqs.map((faq, index) => (
                 <details key={faq.question} className="faq-item" open={index === 0}>
