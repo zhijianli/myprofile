@@ -304,7 +304,7 @@ function App() {
 
         <section id="products" className="section section--products">
           <div className="section__inner">
-            <SectionHeading index="03" label="独立开发产品" title="在十字路口构建的作品" />
+            <SectionHeading index="03" label="独立开发产品" title="在十字路口构建的产品" />
             <p className="section__lead">
               一些独立开发产品的视频和介绍，还在线的产品也有链接可以体验。
             </p>
