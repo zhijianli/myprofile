@@ -304,9 +304,9 @@ function App() {
 
         <section id="products" className="section section--products">
           <div className="section__inner">
-            <SectionHeading index="03" label="产品视频" title="产品演示与录屏" />
+            <SectionHeading index="03" label="独立开发产品" title="在十字路口构建的作品" />
             <p className="section__lead">
-              过去产品的一些演示与录屏，展示实际运行效果。
+              一些独立开发产品的视频和介绍，还在线的产品也有链接可以体验。
             </p>
             <ul className="product-list">
               {products.map((p) => {
