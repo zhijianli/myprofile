@@ -240,7 +240,7 @@ export const faqs: FaqItem[] = [
   {
     question: "墨崔 专注于哪些技术领域？",
     answer:
-      "全栈，古法编程时代的技术栈包括Java、Python、React、Vue、小程序。现在在AI编程领域属于维新派，长期使用Cursor,Claude code",
+      "全栈，古法编程时代的技术栈包括Java、Python、React、Vue、小程序。现在在AI编程领域属于维新派，长期使用Cursor，Claude code",
   },
   {
     question: "墨崔 有哪些心理健康资质？",
