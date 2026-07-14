@@ -121,7 +121,7 @@ export type SkillCard = {
 
 export type FaqItem = {
   question: string;
-  answer: string;
+  answer: string | string[];
 };
 
 export const skillCards: SkillCard[] = [
@@ -240,12 +240,15 @@ export const faqs: FaqItem[] = [
   {
     question: "墨崔 专注于哪些技术领域？",
     answer:
-      "主要覆盖 Java、Python、React、Vue、Flutter、UniApp、ASR 语音识别、Dify 工作流与 AI 产品设计。",
+      "全栈，古法编程时代的技术栈包括Java、Python、React、Vue、小程序。现在在AI编程领域属于维新派，长期使用Cursor,Claude code",
   },
   {
     question: "墨崔 有哪些心理健康资质？",
-    answer:
-      "持有国家三级心理咨询师证书，并自 2017 年起连续四年持续参与心理危机干预志愿工作。",
+    answer: [
+      "曾参加杭州德瑞姆国家心理咨询师培训两年，持有国家三级心理咨询师证书（编号：1503000210300408）。",
+      "2017 年开始连续4年持续参与杭州第七人民医院危机干预热线工作，并参与编写《杭州市心理援助热线指导手册》。",
+      "参与香港精神分析家苏伟峰教授的拉康派心理学培训一年，并合作发表论文集《凝定与变迁》。",
+    ],
   },
   {
     question: "墨崔 目前开发了哪些产品？",

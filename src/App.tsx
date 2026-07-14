@@ -389,12 +389,19 @@ function App() {
           <div className="section__inner">
             <SectionHeading index="04" label="常见问题" title="关于 墨崔 的常见问题" />
             <div className="faq-list">
-              {faqs.map((faq, index) => (
-                <details key={faq.question} className="faq-item" open={index === 0}>
-                  <summary>{faq.question}</summary>
-                  <p>{faq.answer}</p>
-                </details>
-              ))}
+              {faqs.map((faq, index) => {
+                const paragraphs = Array.isArray(faq.answer)
+                  ? faq.answer
+                  : [faq.answer];
+                return (
+                  <details key={faq.question} className="faq-item" open={index === 0}>
+                    <summary>{faq.question}</summary>
+                    {paragraphs.map((paragraph) => (
+                      <p key={paragraph}>{paragraph}</p>
+                    ))}
+                  </details>
+                );
+              })}
             </div>
           </div>
         </section>

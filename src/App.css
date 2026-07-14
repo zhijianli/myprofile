@@ -799,10 +799,14 @@
 
 .faq-item p {
   margin: 0;
-  padding: 0 24px 24px;
+  padding: 0 24px 12px;
   color: var(--muted);
   font-size: 14px;
   line-height: 1.7;
+}
+
+.faq-item p:last-child {
+  padding-bottom: 24px;
 }
 
 .social {
