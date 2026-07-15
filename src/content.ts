@@ -63,20 +63,33 @@ export const site = {
       label: "GitHub",
       href: "https://github.com/zhijianli",
       svg: "github" as const,
+      umamiEvent: "contact-github",
     },
-    { label: "知乎", href: "https://www.zhihu.com/people/kong-hao-56-28", icon: "/images/zhihu.png" },
-    { label: "豆瓣", href: "https://www.douban.com/people/46125148/", icon: "/images/douban.png" },
+    {
+      label: "知乎",
+      href: "https://www.zhihu.com/people/kong-hao-56-28",
+      icon: "/images/zhihu.png",
+      umamiEvent: "contact-zhihu",
+    },
+    {
+      label: "豆瓣",
+      href: "https://www.douban.com/people/46125148/",
+      icon: "/images/douban.png",
+      umamiEvent: "contact-douban",
+    },
     {
       label: "小红书",
       href: "https://www.xiaohongshu.com/user/profile/66330c1b00000000070066d7?xsec_token=ABx4h6xx2X4Ll5EjLlcDlfd_E1_RXdAnLEBb7ZuRnvfqQ%3D&xsec_source=pc_search",
       icon: "/images/xiaohongshu-logo.svg",
       iconWhiteBackdrop: true,
+      umamiEvent: "contact-xiaohongshu",
     },
     {
       label: "微信",
       href: "#",
       icon: "/images/wechat-logo.svg",
       popupImage: "/images/wechat.png",
+      umamiEvent: "contact-wechat",
     },
   ] satisfies SocialLink[],
 };
@@ -90,8 +103,16 @@ export type SocialLink =
       popupImage?: string;
       /** 与图标同尺寸的白色衬底，logo 叠在上层 */
       iconWhiteBackdrop?: boolean;
+      /** Umami 事件名，用于统计联系方式点击 */
+      umamiEvent?: string;
     }
-  | { label: string; href: string; svg: "github"; icon?: undefined };
+  | {
+      label: string;
+      href: string;
+      svg: "github";
+      icon?: undefined;
+      umamiEvent?: string;
+    };
 
 export type ProductStatus = "online" | "soon" | "offline";
 

@@ -61,7 +61,10 @@ function HeroSocialRow({ onOpenWechat }: { onOpenWechat: (src: string) => void }
               <button
                 type="button"
                 className="social__link social__link--popup"
-                onClick={() => onOpenWechat(popupImage)}
+                onClick={() => {
+                  if (s.umamiEvent) window.umami?.track(s.umamiEvent);
+                  onOpenWechat(popupImage);
+                }}
               >
                 <SocialGlyph link={s} />
                 <span>{s.label}</span>
@@ -75,6 +78,7 @@ function HeroSocialRow({ onOpenWechat }: { onOpenWechat: (src: string) => void }
             <a
               className="social__link"
               href={s.href}
+              data-umami-event={s.umamiEvent}
               {...(isPlaceholder
                 ? {
                     onClick: (e: React.MouseEvent<HTMLAnchorElement>) =>
