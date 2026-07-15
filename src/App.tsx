@@ -370,6 +370,7 @@ function App() {
                         <a
                           className="product-card__cta"
                           href={p.href}
+                          data-umami-event={p.umamiEvent}
                           {...(p.href.startsWith("http")
                             ? { target: "_blank", rel: "noreferrer" }
                             : {})}
@@ -389,12 +390,20 @@ function App() {
           <div className="section__inner">
             <SectionHeading index="04" label="常见问题" title="关于 墨崔 的常见问题" />
             <div className="faq-list">
-              {faqs.map((faq, index) => {
+              {faqs.map((faq) => {
                 const paragraphs = Array.isArray(faq.answer)
                   ? faq.answer
                   : [faq.answer];
                 return (
-                  <details key={faq.question} className="faq-item" open={index === 0}>
+                  <details
+                    key={faq.question}
+                    className="faq-item"
+                    onToggle={(e) => {
+                      if (e.currentTarget.open && faq.umamiEvent) {
+                        window.umami?.track(faq.umamiEvent);
+                      }
+                    }}
+                  >
                     <summary>{faq.question}</summary>
                     {paragraphs.map((paragraph) => (
                       <p key={paragraph}>{paragraph}</p>

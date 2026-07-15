@@ -111,6 +111,8 @@ export type Product = {
   /** 视频面板主题色，与 Figma 卡片氛围一致 */
   accent: string;
   href?: string;
+  /** Umami 事件名，用于统计「立即体验」点击 */
+  umamiEvent?: string;
 };
 
 export type SkillCard = {
@@ -122,6 +124,8 @@ export type SkillCard = {
 export type FaqItem = {
   question: string;
   answer: string | string[];
+  /** Umami 事件名，用于统计 FAQ 展开点击 */
+  umamiEvent?: string;
 };
 
 export const skillCards: SkillCard[] = [
@@ -161,6 +165,7 @@ export const products: Product[] = [
     status: "online",
     accent: "#6b4f8a",
     href: "https://songjing.menganhealth.cn/",
+    umamiEvent: "cta-songjing",
   },
   {
     title: "羽衣 YUYI",
@@ -175,6 +180,7 @@ export const products: Product[] = [
     status: "online",
     accent: "#b85c38",
     href: "https://yuyi.menganhealth.cn/",
+    umamiEvent: "cta-yuyi",
   },
   {
     title: "心蜗",
@@ -189,6 +195,7 @@ export const products: Product[] = [
     status: "online",
     accent: "#2a5c45",
     href: "https://supermarket.xwxinli.com/login",
+    umamiEvent: "cta-xinwo",
   },
   {
     title: "宁心安愈",
@@ -234,16 +241,19 @@ export const products: Product[] = [
 export const faqs: FaqItem[] = [
   {
     question: "墨崔 是谁？",
+    umamiEvent: "faq-who",
     answer:
       "墨崔 是一位常驻杭州的独立开发者，职业生涯从阿里巴巴 Java 工程师起步，曾参与天猫超市早期建设，后来持续在心理健康、医疗健康与 AI 产品方向工作。",
   },
   {
     question: "墨崔 专注于哪些技术领域？",
+    umamiEvent: "faq-tech",
     answer:
       "全栈，古法编程时代的技术栈包括Java、Python、React、Vue、小程序。现在在AI编程领域属于维新派，长期使用Cursor，Claude code",
   },
   {
     question: "墨崔 有哪些心理健康资质？",
+    umamiEvent: "faq-qualification",
     answer: [
       "曾参加杭州德瑞姆国家心理咨询师培训两年，持有国家三级心理咨询师证书（编号：1503000210300408）。",
       "2017 年开始连续4年持续参与杭州第七人民医院危机干预热线工作，并参与编写《杭州市心理援助热线指导手册》。",
@@ -252,16 +262,19 @@ export const faqs: FaqItem[] = [
   },
   {
     question: "墨崔 目前开发了哪些产品？",
+    umamiEvent: "faq-products",
     answer:
       "目前产品包括诵经 SONGJING、羽衣 YUYI、心蜗等，宁心安愈即将上线；另有脉轮测评、知己测试等历史产品。方向集中在心理健康、精神健康工具与生活方式应用。",
   },
   {
     question: "如何与 墨崔 合作或联系？",
+    umamiEvent: "faq-contact",
     answer:
       "可以通过页面中的 GitHub、知乎、豆瓣、小红书或微信入口联系，适合围绕疗愈、心理健康、AI 与独立产品展开合作。",
   },
   {
     question: "墨崔 的产品理念是什么？",
+    umamiEvent: "faq-philosophy",
     answer:
       "在疗愈与技术的十字路口，综合运用工程、心理学、佛学与产品经验，做出踏实、有用、能帮助他人的产品。",
   },
