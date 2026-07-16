@@ -16,7 +16,7 @@
 
 <p align="center">
   <a href="https://profile.menganhealth.cn/">
-    <img alt="个人网站" src="https://img.shields.io/badge/🌐%20个人网站-profile.menganhealth.cn-2ea44f?style=flat-square" />
+    <img alt="个人网站" src="https://img.shields.io/badge/🌐%20个人网站-墨崔-2ea44f?style=flat-square" />
   </a>
   <a href="https://github.com/zhijianli">
     <img alt="GitHub" src="https://img.shields.io/badge/GitHub-zhijianli-181717?style=flat-square&logo=github" />
