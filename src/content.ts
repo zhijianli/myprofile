@@ -66,12 +66,6 @@ export const site = {
       umamiEvent: "contact-github",
     },
     {
-      label: "知乎",
-      href: "https://www.zhihu.com/people/kong-hao-56-28",
-      icon: "/images/zhihu.png",
-      umamiEvent: "contact-zhihu",
-    },
-    {
       label: "豆瓣",
       href: "https://www.douban.com/people/46125148/",
       icon: "/images/douban.png",
@@ -291,7 +285,7 @@ export const faqs: FaqItem[] = [
     question: "如何与 墨崔 合作或联系？",
     umamiEvent: "faq-contact",
     answer:
-      "可以通过页面中的 GitHub、知乎、豆瓣、小红书或微信入口联系，适合围绕疗愈、心理健康、AI 与独立产品展开合作。",
+      "可以通过页面中的 GitHub、豆瓣、小红书或微信入口联系，适合围绕疗愈、心理健康、AI 与独立产品展开合作。",
   },
   {
     question: "墨崔 的产品理念是什么？",
